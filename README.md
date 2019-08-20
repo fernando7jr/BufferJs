@@ -8,7 +8,7 @@ Works with any array-like data.
 
 ## Installation
 
-Download from [CDN](https://cdn.jsdelivr.net/npm/color-prism/dist.browser/buffer.min.js) or install from npm
+Download from [CDN](https://cdn.jsdelivr.net/npm/buffingjs/dist.browser/buffer.min.js) or install from npm
 
 `npm install --save buffingjs`
 
