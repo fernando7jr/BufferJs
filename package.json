@@ -1,0 +1,48 @@
+{
+  "name": "bufferjs",
+  "version": "1.0.0",
+  "description": "An easy yet complete to use iterable data buffer in javascript",
+  "main": "index.js",
+  "types": "dist/buffer.d.ts",
+  "scripts": {
+    "docs": "typedoc --theme markdown --platform gitbook",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && browserify dist/buffer.js -o dist.browser/buffer.js",
+    "prepare": "npm run build && npm run docs",
+    "prepack": "minify dist.browser/buffer.js > dist.browser/buffer.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metadeta96/BufferJs.git"
+  },
+  "keywords": [
+    "buffer",
+    "data",
+    "iterable",
+    "iterator",
+    "parsing",
+    "parser",
+    "lexer",
+    "node",
+    "browser",
+    "front-end",
+    "back-end"
+  ],
+  "author": "Fernando R Setti Jr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/metadeta96/BufferJs/issues"
+  },
+  "homepage": "https://github.com/metadeta96/BufferJs#readme",
+  "devDependencies": {
+    "browserify": "^16.5.0",
+    "minify": "^4.1.3",
+    "typedoc": "^0.15.0",
+    "typedoc-plugin-markdown": "^2.1.3",
+    "typescript": "^3.5.3"
+  },
+  "files": [
+    "dist",
+    "dist.browser"
+  ]
+}
