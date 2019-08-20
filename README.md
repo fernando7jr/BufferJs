@@ -6,9 +6,27 @@ Ideal for parsing text data or tokens.
 
 Works with any array-like data.
 
-## Class: Buffer <**T**>
+## Installation
 
-The main class
+Download from [CDN](https://cdn.jsdelivr.net/npm/color-prism/dist.browser/buffer.min.js) or install from npm
+
+`npm install --save buffingjs`
+
+## Usage
+
+### Node.js
+
+On Node.js all the methods are available in the package level
+
+```javascript
+// Import the package
+const ColorPrism = require('color-prism');
+
+// Create a new rgb color object;
+const rgbColor = ColorPrism.rgb(200, 0, 10);
+```
+
+## Buffer Api
 
 **`export`** 
 
