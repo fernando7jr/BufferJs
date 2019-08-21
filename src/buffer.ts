@@ -174,6 +174,26 @@ export class Buffer<T> {
     }
 
     /**
+     * Iterate the buffer until it reaches its end
+     * 
+     * If the buffer does not change it is position inside the callback
+     * this.consume will be called to ensure an infinite loop is not created by mistake
+     * @param  {((next: T, pos: number) => void)} callback 
+     * @return this 
+     * @memberof Buffer
+     */
+    forEach(callback: ((next: T, pos: number) => void)): this {
+        while (this.hasCurrent) {
+            const pos = this.__pos;
+            callback(<T>this.current, pos);
+            if (pos === this.__pos) {
+                this.consume();
+            }
+        }
+        return this;
+    }
+
+    /**
      * Iterate from the current position untill [filter] return false
      * or there is no data to process anymore
      * @param  {((next: T, pos: number) => boolean)} filter 
