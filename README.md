@@ -12,20 +12,6 @@ Download from [CDN](https://cdn.jsdelivr.net/npm/buffingjs/dist.browser/buffer.m
 
 `npm install --save buffingjs`
 
-## Usage
-
-### Node.js
-
-On Node.js all the methods are available in the package level
-
-```javascript
-// Import the package
-const ColorPrism = require('color-prism');
-
-// Create a new rgb color object;
-const rgbColor = ColorPrism.rgb(200, 0, 10);
-```
-
 ## Buffer Api
 
 **`export`** 
@@ -47,12 +33,6 @@ const rgbColor = ColorPrism.rgb(200, 0, 10);
 ### Constructors
 
 * [constructor](buffer.md#constructor)
-
-### Properties
-
-* [__data](buffer.md#private-__data)
-* [__pos](buffer.md#private-__pos)
-* [__saved](buffer.md#private-__saved)
 
 ### Accessors
 
@@ -92,8 +72,6 @@ Defined in buffer.ts:11
 
 Creates an instance of Buffer.
 
-**`memberof`** Buffer
-
 **Parameters:**
 
 Name | Type |
@@ -101,30 +79,6 @@ Name | Type |
 `data` | ArrayLike‹T› |
 
 **Returns:** *[Buffer](buffer.md)*
-
-## Properties
-
-### `Private` __data
-
-• **__data**: *ArrayLike‹T›*
-
-Defined in buffer.ts:10
-
-___
-
-### `Private` __pos
-
-• **__pos**: *number* = 0
-
-Defined in buffer.ts:9
-
-___
-
-### `Private` __saved
-
-• **__saved**: *number[]* =  []
-
-Defined in buffer.ts:11
 
 ## Accessors
 
@@ -140,8 +94,6 @@ The value at the current position
 
 **`type`** (T | undefined)
 
-**`memberof`** Buffer
-
 **Returns:** *T | undefined*
 
 ___
@@ -155,8 +107,6 @@ Defined in buffer.ts:67
 Verify if there is a value to read at the current position
 
 **`readonly`** 
-
-**`memberof`** Buffer
 
 **Returns:** *boolean*
 
@@ -174,8 +124,6 @@ Verify if there is a value to read at the next position
 
 **`type`** boolean
 
-**`memberof`** Buffer
-
 **Returns:** *boolean*
 
 ___
@@ -191,8 +139,6 @@ Verify if there is a value to read at the previous position
 **`readonly`** 
 
 **`type`** boolean
-
-**`memberof`** Buffer
 
 **Returns:** *boolean*
 
@@ -210,8 +156,6 @@ The length of the buffer
 
 **`type`** number
 
-**`memberof`** Buffer
-
 **Returns:** *number*
 
 ___
@@ -227,8 +171,6 @@ The next value
 **`readonly`** 
 
 **`type`** (T | undefined)
-
-**`memberof`** Buffer
 
 **Returns:** *T | undefined*
 
@@ -246,8 +188,6 @@ The current position number
 
 **`type`** number
 
-**`memberof`** Buffer
-
 **Returns:** *number*
 
 ___
@@ -264,8 +204,6 @@ The previous read value
 
 **`type`** (T | undefined)
 
-**`memberof`** Buffer
-
 **Returns:** *T | undefined*
 
 ## Methods
@@ -281,8 +219,6 @@ If mode is 'relative' it is considered from the current position instead of 0
 Negative values are accepted in the 'relative' mode
 In the 'absolute' mode negative values will always yield undefined
 
-**`memberof`** Buffer
-
 **Parameters:**
 
 Name | Type |
@@ -291,8 +227,6 @@ Name | Type |
 `mode?` | "absolute" \| "relative" |
 
 **Returns:** *T | undefined*
-
-T | undefined
 
 ___
 
@@ -313,8 +247,6 @@ Name | Type |
 
 **Returns:** *void*
 
-@memberof Buffer
-
 ___
 
 ###  drop
@@ -327,8 +259,6 @@ Remove the latest saved position from the stack
 
 **Returns:** *void*
 
-@memberof Buffer
-
 ___
 
 ###  extract
@@ -340,8 +270,6 @@ Defined in buffer.ts:200
 Iterate from the current position untill [filter] return false
 or there is no data to process anymore
 Return the iterated data
-
-**`memberof`** Buffer
 
 **Parameters:**
 
@@ -358,8 +286,6 @@ Name | Type |
 
 **Returns:** *T[]*
 
-T[]
-
 ___
 
 ###  iterate
@@ -370,8 +296,6 @@ Defined in buffer.ts:183
 
 Iterate from the current position untill [filter] return false
 or there is no data to process anymore
-
-**`memberof`** Buffer
 
 **Parameters:**
 
@@ -388,8 +312,6 @@ Name | Type |
 
 **Returns:** *this*
 
-this
-
 ___
 
 ###  join
@@ -400,8 +322,6 @@ Defined in buffer.ts:248
 
 Join the data into a string using the separator [sep]
 
-**`memberof`** Buffer
-
 **Parameters:**
 
 Name | Type |
@@ -409,8 +329,6 @@ Name | Type |
 `sep` | string |
 
 **Returns:** *string*
-
-string
 
 ___
 
@@ -425,8 +343,6 @@ The position is removed from the stack
 
 **Returns:** *void*
 
-@memberof Buffer
-
 ___
 
 ###  rewind
@@ -438,9 +354,6 @@ Defined in buffer.ts:172
 Return to the starting position of the buffer
 
 **Returns:** *void*
-
-@memberof Buffer
-
 ___
 
 ###  save
@@ -453,8 +366,6 @@ Save the current position for later
 Saved positions are stored in stack
 
 **Returns:** *void*
-
-@memberof Buffer
 
 ___
 
@@ -474,8 +385,6 @@ Name | Type |
 `pos?` | undefined \| number |
 
 **Returns:** *void*
-
-@memberof Buffer
 
 ___
 
@@ -497,11 +406,7 @@ Defined in buffer.ts:127
 
 Move to the next position and then return the value
 
-**`memberof`** Buffer
-
 **Returns:** *T | undefined*
-
-(T | undefined)
 
 ___
 
@@ -513,11 +418,7 @@ Defined in buffer.ts:137
 
 Move to the previous position and then return the value
 
-**`memberof`** Buffer
-
 **Returns:** *T | undefined*
-
-(T | undefined)
 
 ___
 
@@ -529,8 +430,4 @@ Defined in buffer.ts:238
 
 Return the string representation of the data
 
-**`memberof`** Buffer
-
 **Returns:** *string*
-
-string
