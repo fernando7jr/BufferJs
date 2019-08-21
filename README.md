@@ -14,6 +14,118 @@ Download from [CDN](https://cdn.jsdelivr.net/npm/buffingjs/dist.browser/buffer.m
 
 `npm install --save buffingjs`
 
+## Usage
+
+### Basic Example
+
+```typescript
+import { BufferJs } from 'buffingjs';
+// Or for javascript
+// const BufferJs = require('buffingjs');
+
+const hugeText = `At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium. 
+voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati? 
+cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est 
+laborum et dolorum fuga.`;
+const textBuffer = new BufferJs(hugeText);
+
+const list = [1, 2, 3, 4, 5, 6];
+const listBuffer = new BufferJs(list);
+```
+
+### Moving the cursor
+
+```typescript
+import { BufferJs } from 'buffingjs';
+// Or for javascript
+// const BufferJs = require('buffingjs');
+
+const data = ['A', 'B', 'C', 'D', 'E'];
+const buffer = new BufferJs(code);
+
+console.log(buffer.current);    // 'A'
+console.log(buffer.next);       // 'B'
+console.log(buffer.prev);       // undefined
+
+buffer.consume(2);              // Same as calling buffer.toNext() twice
+
+console.log(buffer.current);    // 'C'
+console.log(buffer.next);       // 'D'
+console.log(buffer.prev);       // 'B'
+
+console.log(buffer.toPrev());   // 'B'
+console.log(buffer.current);    // 'B'
+console.log(buffer.next);       // 'A'
+console.log(buffer.prev);       // 'C'
+
+console.log(buffer.position);   // 1
+buffer.seek(2);
+console.log(buffer.position);   // 2
+
+console.log(buffer.current);    // 'C'
+console.log(buffer.next);       // 'D'
+console.log(buffer.prev);       // 'B'
+```
+
+### Parsing
+
+```typescript
+import { BufferJs } from 'buffingjs';
+// Or for javascript
+// const BufferJs = require('buffingjs');
+
+const code = `1+2 - 3 * 5 / 823 + 2.501`;
+const buffer = new BufferJs(code);
+
+const regexNumbers = /[\d\.]/;
+function parseNumbers() {
+    let readDot = false;
+    const value = buffer.extract(c => {
+        if (c === '.') {
+            if (readDot) {
+                return false;
+            }
+            readDot = true;
+        }
+        return regexNumbers.test(c);
+    }).join('');
+
+    return {
+        type: 'number',
+        value: parseFloat(value)
+    };
+}
+
+const regexOperators = /^(?:\+|\-|\*|\/|>|<|(?:>>)|(?:<<))$/;
+function parseOperators() {
+    let value = '';
+    buffer.iterate(c => {
+        const _possibleMatch = value + c;
+        if (!regexOperators.test(_possibleMatch)) {
+            return false;
+        }
+        value = _possibleMatch;
+        return true;
+    });
+
+    return {
+        type: 'operator',
+        value
+    };
+}
+
+const tokens = [];
+buffer.forEach(current => {
+    if (regexNumbers.test(current)) {
+        tokens.push(parseNumbers());
+    } else if (regexOperators.test(current)) {
+        tokens.push(parseOperators());
+    }
+});
+
+console.log(tokens);
+```
+
 ## Buffer Api
 
 **`export`** 
