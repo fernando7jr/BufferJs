@@ -1,6 +1,6 @@
 {
   "name": "buffingjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An easy yet complete to use iterable data buffer in javascript",
   "main": "index.js",
   "types": "dist/buffer.d.ts",
@@ -8,7 +8,7 @@
     "docs": "typedoc --theme markdown --platform gitbook",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc && browserify dist/buffer.js -o dist.browser/buffer.js",
-    "prepare": "npm run build && npm run docs",
+    "prepare": "npm run build",
     "prepack": "minify dist.browser/buffer.js > dist.browser/buffer.min.js"
   },
   "repository": {
