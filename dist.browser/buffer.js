@@ -91,7 +91,7 @@ class Buffer {
         return this.__pos;
     }
     /**
-     * Change the current position number to [pos]
+     * Change the current position number to pos
      * Values bigger than the buffer legth or less than 0 will be forced to stay in the range
      * @param  {number} [pos]
      * @return {void}@memberof Buffer
@@ -100,7 +100,7 @@ class Buffer {
         this.__pos = Math.min(Math.max(pos || 0, 0), this.length);
     }
     /**
-     * Consume the value at the current position and move [count] times
+     * Consume the value at the current position and move count times
      * Negative values are accepted and move backwards instead
      * @param  {number} [count]
      * @return {void}@memberof Buffer
@@ -177,7 +177,7 @@ class Buffer {
         return this;
     }
     /**
-     * Iterate from the current position untill [filter] return false
+     * Iterate from the current position untill filter return false
      * or there is no data to process anymore
      * @param  {((next: T, pos: number) => boolean)} filter
      * @return this
@@ -192,7 +192,7 @@ class Buffer {
         return this;
     }
     /**
-     * Iterate from the current position untill [filter] return false
+     * Iterate from the current position untill filter return false
      * or there is no data to process anymore
      * Return the iterated data
      * @param  {((next: T, pos: number) => boolean)} filter
@@ -212,7 +212,7 @@ class Buffer {
         return __arr;
     }
     /**
-     * Returns the value at position [pos]
+     * Returns the value at position pos
      * If mode is 'relative' it is considered from the current position instead of 0
      * Negative values are accepted in the 'relative' mode
      * In the 'absolute' mode negative values will always yield undefined
@@ -238,7 +238,7 @@ class Buffer {
         return this.toArray().toString();
     }
     /**
-     * Join the data into a string using the separator [sep]
+     * Join the data into a string using the separator sep
      * @param  {string} sep
      * @return string
      * @memberof Buffer

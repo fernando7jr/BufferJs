@@ -71,14 +71,14 @@ export declare class Buffer<T> {
      */
     readonly position: number;
     /**
-     * Change the current position number to [pos]
+     * Change the current position number to pos
      * Values bigger than the buffer legth or less than 0 will be forced to stay in the range
      * @param  {number} [pos]
      * @return {void}@memberof Buffer
      */
     seek(pos?: number): void;
     /**
-     * Consume the value at the current position and move [count] times
+     * Consume the value at the current position and move count times
      * Negative values are accepted and move backwards instead
      * @param  {number} [count]
      * @return {void}@memberof Buffer
@@ -129,7 +129,7 @@ export declare class Buffer<T> {
      */
     forEach(callback: ((next: T, pos: number) => void)): this;
     /**
-     * Iterate from the current position untill [filter] return false
+     * Iterate from the current position untill filter return false
      * or there is no data to process anymore
      * @param  {((next: T, pos: number) => boolean)} filter
      * @return this
@@ -137,7 +137,7 @@ export declare class Buffer<T> {
      */
     iterate(filter: ((next: T, pos: number) => boolean)): this;
     /**
-     * Iterate from the current position untill [filter] return false
+     * Iterate from the current position untill filter return false
      * or there is no data to process anymore
      * Return the iterated data
      * @param  {((next: T, pos: number) => boolean)} filter
@@ -146,7 +146,7 @@ export declare class Buffer<T> {
      */
     extract(filter: ((next: T, pos: number) => boolean)): T[];
     /**
-     * Returns the value at position [pos]
+     * Returns the value at position pos
      * If mode is 'relative' it is considered from the current position instead of 0
      * Negative values are accepted in the 'relative' mode
      * In the 'absolute' mode negative values will always yield undefined
@@ -164,7 +164,7 @@ export declare class Buffer<T> {
      */
     toString(): string;
     /**
-     * Join the data into a string using the separator [sep]
+     * Join the data into a string using the separator sep
      * @param  {string} sep
      * @return string
      * @memberof Buffer
