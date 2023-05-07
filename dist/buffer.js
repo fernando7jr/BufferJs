@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Buffer = void 0;
 /**
  * An iterable data buffer. Ideal for parsing text data or tokens.
  * Works with any array-like data.

@@ -21,55 +21,55 @@ export declare class Buffer<T> {
      * @type number
      * @memberof Buffer
      */
-    readonly length: number;
+    get length(): number;
     /**
      * The value at the current position
      * @readonly
      * @type (T | undefined)
      * @memberof Buffer
      */
-    readonly current: T | undefined;
+    get current(): T | undefined;
     /**
      * The next value
      * @readonly
      * @type (T | undefined)
      * @memberof Buffer
      */
-    readonly next: T | undefined;
+    get next(): T | undefined;
     /**
      * The previous read value
      * @readonly
      * @type (T | undefined)
      * @memberof Buffer
      */
-    readonly prev: T | undefined;
+    get prev(): T | undefined;
     /**
      * Verify if there is a value to read at the current position
      * @readonly
      * @memberof Buffer
      */
-    readonly hasCurrent: boolean;
+    get hasCurrent(): boolean;
     /**
      * Verify if there is a value to read at the next position
      * @readonly
      * @type boolean
      * @memberof Buffer
      */
-    readonly hasNext: boolean;
+    get hasNext(): boolean;
     /**
      * Verify if there is a value to read at the previous position
      * @readonly
      * @type boolean
      * @memberof Buffer
      */
-    readonly hasPrev: boolean;
+    get hasPrev(): boolean;
     /**
      * The current position number
      * @readonly
      * @type number
      * @memberof Buffer
      */
-    readonly position: number;
+    get position(): number;
     /**
      * Change the current position number to pos
      * Values bigger than the buffer legth or less than 0 will be forced to stay in the range
